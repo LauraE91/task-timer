@@ -3,6 +3,7 @@ import './App.css';
 import './stopwatch.css';
 import BackBtn from "./BackBtn";
 
+
 // Done button will change views and display the total time plus the task name in a task history... maybe? It may also give the option to write a brief note.
 
 
@@ -121,7 +122,7 @@ let updatedHr = times.hr;
     <div className="outer-container">
       <BackBtn handleBackClick={props.handleBackClick}/>
       <div className="heading">
-        <h1>Task</h1>
+        <h1>{props.taskInput}</h1>
       </div>
       <div className="stopwatch-container">
         <div className="timer">

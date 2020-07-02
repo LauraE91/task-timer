@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import {
-  useHistory,
-  withRouter,
-} from "react-router-dom";
 import './App.css';
-
 import StartView from './StartView';
 import Stopwatch from './Stopwatch';
+import GlobalStateContext from './GlobalStateContext';
 
 // Things I want to do:
 
@@ -30,8 +26,9 @@ function App() {
   const [ view, setView ] = useState("startView");
   const [ taskInput, setTaskInput] = useState();
 
-  const handleStartTask = () => {
+  const handleStartTask = (taskInput) => {
     setView("startClicked");
+    setTaskInput(taskInput);
   }
 
   const handleBackClick = () => {
@@ -40,21 +37,24 @@ function App() {
 
   const handleChange = e => {
     setTaskInput(e.target.value)
-    console.log(e.target.value)
   }
 
   const display = () => {
     switch(view) {
       case "startClicked":
         return (
-          <Stopwatch handleBackClick={handleBackClick}/>
+          <Stopwatch taskInput={taskInput} handleBackClick={handleBackClick}/>
         )
         break;
 
 
       default:
       return (
-        <StartView taskInput={taskInput} handleChange={handleChange} handleStartTask={handleStartTask}/>
+        <StartView
+        taskInput={taskInput}
+        handleChange={handleChange}
+        handleStartTask={handleStartTask}/>
+
       )
       break;
         }
@@ -67,6 +67,6 @@ function App() {
   )
 }
 
-const AppWithRouter = withRouter(App);
 
-export default AppWithRouter;
+
+export default App;
