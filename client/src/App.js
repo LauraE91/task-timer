@@ -18,21 +18,26 @@ It will record it in a history.
 That's it.
 */
 
-// Add a back arrow from the stopwatch to the start view. useHistory?
-
+// When I hit "done" go to a screen with a history box and record the task with the time and date. Save these to local storage.
 
 
 function App() {
   const [ view, setView ] = useState("startView");
   const [ taskInput, setTaskInput] = useState();
+  const [taskHistory, setTaskHistory] = useState();
+
+
 
   const handleStartTask = (taskInput) => {
     setView("startClicked");
     setTaskInput(taskInput);
   }
 
+
+
   const handleBackClick = () => {
     setView("startView");
+    setTaskInput()
   }
 
   const handleChange = e => {
@@ -43,10 +48,10 @@ function App() {
     switch(view) {
       case "startClicked":
         return (
-          <Stopwatch taskInput={taskInput} handleBackClick={handleBackClick}/>
+          <Stopwatch taskInput={taskInput} handleBackClick={handleBackClick}
+          />
         )
         break;
-
 
       default:
       return (

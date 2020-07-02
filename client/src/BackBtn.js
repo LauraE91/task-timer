@@ -5,7 +5,7 @@ function BackBtn(props) {
 
   const backBtnStyle = {
     position: "absolute",
-    top: "5rem",
+    top: "3rem",
     left: "20rem",
     padding: "1.5rem",
     background: "none",

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import GlobalStateContext from './GlobalStateContext';
+
 
 
 
@@ -12,7 +12,7 @@ function StartView(props) {
   return (
     <>
       <input onChange={props.handleChange} value={props.taskInput} placeholder="What are you working on?" className="task-input"/>
-    <button onClick={startClicked} className="start-btn">Start</button>
+      <button onClick={startClicked} className="start-btn">Start</button>
     </>
   )
 }
