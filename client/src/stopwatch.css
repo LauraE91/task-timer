@@ -1,0 +1,72 @@
+.outer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.stopwatch-container {
+  background: #67aae6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+}
+
+.heading {
+  margin-top: 4rem;
+}
+
+.timer h1 {
+  font-size: 2rem;
+}
+
+.timer {
+  padding: 1rem;
+  margin: 2rem;
+  line-height: 0.25rem;
+
+}
+
+.btn-group {
+  margin-top: 2rem;
+}
+
+.seconds {
+  padding-left: 0.2rem;
+  font-size: 2rem;
+
+}
+
+.btn {
+  background: none;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  outline: none;
+}
+
+.stop-btn {
+  border: 1px solid red;
+  color: red;
+}
+
+.reset-btn {
+  border: 1px solid purple;
+  color: purple;
+}
+
+.pause-btn {
+  border: 1px solid #d9b500;
+  color: #d9b500;
+}
+
+.resume-btn {
+  border: 1px solid green;
+  color: green;
+}

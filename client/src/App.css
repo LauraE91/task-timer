@@ -1,14 +1,39 @@
-.stopwatch-container {
-  background: yellow;
-  display: flex;
-  justify-content: space-around;
-  width: auto;
-  max-width: 600px;
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.time-box {
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10rem;
+}
 
-  padding: 1rem;
-  margin: 2rem;
-  line-height: 0.25rem;
+.task-input {
+  width: 500px;
+  padding: 1.5rem 2.5rem;
+  font-size: 2rem;
+
+}
+
+.start-btn {
+  background: none;
+  padding: 1rem 2rem;
+  margin: 7rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 2rem;
+  background: green;
+  color: white;
+  border: 1px solid green;
+  transition: 0.3s ease-in-out;
+  outline: none;
+}
+
+.start-btn:hover {
+  background: white;
+  color: green;
 }
