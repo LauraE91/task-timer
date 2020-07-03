@@ -3,7 +3,22 @@
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 2.3px;
+}
+
+:root {
+  --dark: #212121;
+  --secondary: #ded22a;
+  --primary: #5730b3;
+  --light: #8c62f0;
+  --white: #ebeada;
+  --transition: 0.3s ease;
+}
+
+
+body {
+  background: var(--white);
 }
 
 .app {
@@ -14,28 +29,70 @@
   padding-top: 3rem;
 }
 
+.start-view {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
+}
+
 .task-input {
-  width: 500px;
+  width: 600px;
   padding: 1.5rem 2.5rem;
   font-size: 2rem;
+  border: 1px solid var(--dark);
+  background: var(--white);
+  color: var(--dark);
 
+}
+
+.task-input::placeholder {
+  color: var(--dark);
+  opacity: 0.3;
+}
+
+.btn {
+  background: none;
+  padding: 0.5rem 1.5rem;
+  margin: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  outline: none;
+  transition: var(--transition);
+  /*border: 1px solid var(--dark);*/
+  border: 1px solid var(--dark);
+  border-radius: 10px;
+}
+
+.btn:hover {
+  background: var(--dark);
+  color:var(--white);
+}
+
+.primary-btn {
+  border: 1px solid var(--primary);
+  color: var(--primary);
+}
+
+.primary-btn:hover {
+  color: var(--white);
+  background: var(--primary);
 }
 
 .start-btn {
   background: none;
   padding: 1rem 2rem;
   margin: 7rem;
-  cursor: pointer;
   font-weight: bold;
   font-size: 2rem;
-  background: green;
-  color: white;
-  border: 1px solid green;
-  transition: 0.3s ease-in-out;
-  outline: none;
+  background: var(--primary);
+  color: var(--white);
+  border: 1px solid var(--primary);
 }
 
 .start-btn:hover {
-  background: white;
-  color: green;
+  background: var(--white);
+  color: var(--primary);
 }
