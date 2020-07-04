@@ -20,7 +20,17 @@ function App() {
 
   const handleStartTask = (taskInput) => {
     setView("startClicked");
-    setTaskInput(taskInput);
+
+    // Lowercase taskInput
+    const lowerCaseTask = taskInput.toLowerCase();
+
+    //Capitlize first letter of taskInput
+    const firstLetter = taskInput.charAt(0).toUpperCase();
+    // Combine to capitalize taskInput
+    const capitalizedTaskInput = firstLetter + lowerCaseTask.slice(1)
+
+
+    setTaskInput(capitalizedTaskInput);
   }
 
   const handleBackClick = () => {
