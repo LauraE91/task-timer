@@ -67,9 +67,10 @@
 
 .task-history-list {
   width: auto;
-  max-height: 650px;
+  max-height: 450px;
   overflow-y: scroll;
 }
+
 
 .task-history-list::-webkit-scrollbar {
   width: 20px;

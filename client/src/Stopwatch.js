@@ -2,9 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import './stopwatch.css';
 import BackBtn from "./BackBtn";
-
-
-// Done button will change views and display the total time plus the task name in a task history... maybe? It may also give the option to write a brief note.
+import TaskHistoryList from "./TaskHistoryList";
 
 
 
@@ -20,6 +18,15 @@ const [ recordedTime, setRecordedTime ] = useState();
 const [ taskHistoryList, setTaskHistoryList ] = useState([]);
 const [ displayTaskHistory, setDisplayTaskHistory ] = useState(true);
 
+useEffect(() => {
+
+  if(!localStorage.taskList) {
+    return;
+  } else {
+    const taskList = JSON.parse(localStorage.getItem("taskList"));
+    setTaskHistoryList(taskList);
+  }
+}, [])
 
 
 
@@ -64,10 +71,12 @@ let updatedHr = times.hr;
       date: new Date().toDateString(),
       sec: updatedSec,
       min: updatedMin,
-      hr: updatedHr
+      hr: updatedHr,
+      id: Date.now()
     }
     setTaskHistoryList([newTask, ...taskHistoryList]);
     setStatus("done");
+    localStorage.setItem("taskList", JSON.stringify([newTask, ...taskHistoryList]));
 
   }
 
@@ -99,7 +108,13 @@ let updatedHr = times.hr;
 
   const toggleHistory = () => {
     setDisplayTaskHistory(!displayTaskHistory);
-    //setDisplayTaskHistory(!displayTaskHistory);
+  }
+
+  const removeTask = id => {
+    // filter by id of task and set setTaskHistoryList to filteredList
+    const filteredList = taskHistoryList.filter(task => id !== task.id);
+    setTaskHistoryList(filteredList);
+    localStorage.setItem("taskList", filteredList)
   }
 
   const displayBtns = () => {
@@ -129,13 +144,6 @@ let updatedHr = times.hr;
             </>
           )
         break;
-
-          //case "doneClicked":
-          //  return (
-          //    <TaskHistory taskInput={taskInput} date={date}/>
-          //  )
-          //  break;
-
 
       default:
       return (
@@ -177,18 +185,15 @@ let updatedHr = times.hr;
 
       <section className={taskHistoryStyles}>
         <h2>Completed Tasks</h2>
-        <ul className="task-history-list">
-          {taskHistoryList.map(task => (
-            <li className="task">
-              <span>{task.date}</span>
-              <span className="bold">{task.task}</span>
-              <span>{`${task.hr}h ${task.min}m ${task.sec}s`}</span>
-              <div ><i className="remove-btn far fa-trash-alt"></i></div>
-            </li>
-          )
+        {
+          taskHistoryList.length < 1 ?
+          <p>You have no completed tasks.</p> :
+        <TaskHistoryList taskHistoryList={taskHistoryList}
+        removeTask={removeTask}
+        />
+        }
 
-          )}
-        </ul>
+
       </section>
 
     </div>

@@ -57,7 +57,10 @@ function App() {
 
   return (
     <div className="app">
-        {display()}
+      <nav className="navbar">
+        <div className="logo"></div>
+      </nav>
+      {display()}
     </div>
   )
 }
