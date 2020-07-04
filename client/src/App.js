@@ -6,9 +6,7 @@ import Stopwatch from './Stopwatch';
 
 // Things I want to do:
 
-// Delete task
-// Save taskList to localStorage
-// Automatically capitalize the taskInput/
+// Automatically capitalize the taskInput
 // Possibly change the color of the newest task?
 
 
@@ -58,7 +56,7 @@ function App() {
   return (
     <div className="app">
       <nav className="navbar">
-        <div className="logo"></div>
+        <div className="logo">Task Timer</div>
       </nav>
       {display()}
     </div>
@@ -68,3 +66,4 @@ function App() {
 
 
 export default App;
+//

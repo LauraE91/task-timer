@@ -19,6 +19,7 @@
 
 body {
   background: var(--white);
+
 }
 
 .app {
@@ -26,7 +27,25 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 3rem;
+
+
+}
+
+.navbar {
+  background: var(--primary);
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.7rem;
+  color: var(--white);
+  padding: 1rem 2rem;
+  font-weight: 400;
+
 }
 
 .start-view {
@@ -34,7 +53,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 10rem;
+  height: 88vh;
 }
 
 .task-input {
@@ -95,4 +114,18 @@ body {
 .start-btn:hover {
   background: var(--white);
   color: var(--primary);
+}
+
+.footer {
+  background: var(--dark);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer p {
+  color: var(--white);
+  padding: 1rem;
+  font-size: 1.2rem;
 }

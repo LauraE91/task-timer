@@ -10,10 +10,13 @@ function StartView(props) {
   }
 
   return (
-    <div className="start-view">
-      <input onChange={props.handleChange} value={props.taskInput} placeholder="What are you working on?" className="task-input"/>
-      <button onClick={startClicked} className="btn start-btn">Start</button>
-    </div>
+    <>
+      <div className="start-view">
+        <input onChange={props.handleChange} value={props.taskInput} placeholder="What are you working on?" className="task-input"/>
+        <button onClick={startClicked} className="btn start-btn">Start</button>
+      </div>
+      <footer className="footer"><p>&copy; Laura Ross 2020</p></footer>
+    </>
   )
 }
 
