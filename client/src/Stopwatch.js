@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './globalStyles.css';
+import './themeStyles.css';
 import './stopwatch.css';
-import BackBtn from "./BackBtn";
-import TaskHistoryList from "./TaskHistoryList";
-
+import TaskHistoryList from './TaskHistoryList';
+import {ThemeContextConsumer} from './ThemeContext';
 
 
 function Stopwatch(props) {
@@ -121,82 +121,99 @@ let updatedHr = times.hr;
     switch(status) {
       case "paused":
         return (
-          <>
-            <button className="btn resume-btn" onClick={resume}>Resume</button>
-            <button className="btn primary-btn" onClick={reset}>Reset</button>
-          </>
+          <ThemeContextConsumer>
+          {context => (
+            <>
+              <button className={`btn btn-${context.theme}-theme`} onClick={resume}>Resume</button>
+              <button className={`btn primary-btn-${context.theme}-theme`} onClick={reset}>Reset</button>
+            </>
+          )}
+          </ThemeContextConsumer>
         )
         break;
 
         case "reset":
           return (
-            <>
-              <button className="btn resume-btn" onClick={start}>Start</button>
-            </>
+            <ThemeContextConsumer>
+            {context => (
+              <>
+                <button className={`btn btn-${context.theme}-theme`} onClick={start}>Start</button>
+              </>
+            )}
+            </ThemeContextConsumer>
           )
         break;
 
         case "done":
           return (
-            <>
-              <h3 className="success">Congrats, you finished a thing!</h3>
-              <button onClick={props.handleBackClick} className="btn"> Start something else?</button>
-            </>
+            <ThemeContextConsumer>
+            {context => (
+              <>
+                <h3 className={`success-${context.theme}-theme`}>Congrats, you finished a thing!</h3>
+                <button onClick={props.handleBackClick} className={`btn btn-${context.theme}-theme`}> Start something else?</button>
+              </>
+            )}
+            </ThemeContextConsumer>
           )
         break;
 
       default:
       return (
-        <>
-          <button className="btn pause-btn" onClick={pause}>Pause</button>
-          <button className="btn done-btn" onClick={done}>Done</button>
-          <button className="btn primary-btn" onClick={reset}>Reset</button>
-        </>
+        <ThemeContextConsumer>
+        {context => (
+          <>
+            <button className={`btn btn-${context.theme}-theme`} onClick={pause}>Pause</button>
+            <button className={`btn btn-${context.theme}-theme`} onClick={done}>Done</button>
+            <button className={`btn primary-btn-${context.theme}-theme`} onClick={reset}>Reset</button>
+          </>
+        )}
+        </ThemeContextConsumer>
       )
     }
   }
 
 
   return (
-    <div className="outer-container">
-      <div className="top-btn-group">
-        <BackBtn handleBackClick={props.handleBackClick}/>
-        <button onClick={toggleHistory} className="btn">Toggle History</button>
-      </div>
-      <div className="task-heading">
-        <h1>{props.taskInput}</h1>
-      </div>
-      <div className="stopwatch-container">
-        <div className="timer">
-          <h1>{times.hr < 10 ?
-            <span>0{times.hr}</span> :
-            <span>{times.hr}</span>
-          }:{times.min < 10 ?
-            <span>0{times.min}</span> :
-            <span>{times.min}</span>
-          }<span className="seconds">{times.sec < 10 ?
-            <span>0{times.sec}</span> :
-          <span>{times.sec}</span>}</span></h1>
+    <ThemeContextConsumer>
+      {context => (
+        <div className="outer-container">
+          <div className="top-btn-group">
+            <button onClick={props.handleBackClick} className={`btn btn-${context.theme}-theme`}>Back</button>
+            <button onClick={toggleHistory} className={`btn btn-${context.theme}-theme`}>Toggle History</button>
+          </div>
+          <div className={`task-heading task-heading-${context.theme}-theme`}>
+            <h1>{props.taskInput}</h1>
+          </div>
+          <div className="stopwatch-container">
+            <div className={`timer timer-${context.theme}-theme`}>
+              <h1>{times.hr < 10 ?
+                <span>0{times.hr}</span> :
+                <span>{times.hr}</span>
+              }:{times.min < 10 ?
+                <span>0{times.min}</span> :
+                <span>{times.min}</span>
+              }<span className="seconds">{times.sec < 10 ?
+                <span>0{times.sec}</span> :
+              <span>{times.sec}</span>}</span></h1>
+            </div>
+          </div>
+          <div className="btn-group">
+            {displayBtns()}
+          </div>
+
+          <section className={taskHistoryStyles}>
+            <h2 className={`task-history-heading-${context.theme}-theme`}>Completed Tasks</h2>
+            {
+              taskHistoryList.length < 1 ?
+              <p className={`task-history-message-${context.theme}-theme`}>You have no completed tasks.</p> :
+            <TaskHistoryList taskHistoryList={taskHistoryList}
+            removeTask={removeTask}
+            />
+            }
+          </section>
         </div>
-      </div>
-      <div className="btn-group">
-        {displayBtns()}
-      </div>
-
-      <section className={taskHistoryStyles}>
-        <h2>Completed Tasks</h2>
-        {
-          taskHistoryList.length < 1 ?
-          <p>You have no completed tasks.</p> :
-        <TaskHistoryList taskHistoryList={taskHistoryList}
-        removeTask={removeTask}
-        />
-        }
-
-
-      </section>
-
-    </div>
+      )}
+    </ThemeContextConsumer>
   )
 }
 

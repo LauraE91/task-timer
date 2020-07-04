@@ -1,36 +1,35 @@
 import React, { useState, useEffect } from 'react'
-import './App.css';
+import './globalStyles.css';
+import './themeStyles.css';
 import StartView from './StartView';
 import Stopwatch from './Stopwatch';
+import {ThemeContextConsumer} from './ThemeContext';
 
-
-// Things I want to do:
-
-// Automatically capitalize the taskInput
-// Possibly change the color of the newest task?
 
 
 function App() {
   const [ view, setView ] = useState("startView");
   const [ taskInput, setTaskInput] = useState();
-  //const [taskHistory, setTaskHistory] = useState();
-
 
 
 
   const handleStartTask = (taskInput) => {
     setView("startClicked");
 
-    // Lowercase taskInput
-    const lowerCaseTask = taskInput.toLowerCase();
+    if(!taskInput) {
+      setTaskInput(taskInput)
+    } else {
+      // Lowercase taskInput
+      const lowerCaseTask = taskInput.toLowerCase();
 
-    //Capitlize first letter of taskInput
-    const firstLetter = taskInput.charAt(0).toUpperCase();
-    // Combine to capitalize taskInput
-    const capitalizedTaskInput = firstLetter + lowerCaseTask.slice(1)
+      //Capitlize first letter of taskInput
+      const firstLetter = taskInput.charAt(0).toUpperCase();
+      // Combine to capitalize taskInput
+      const capitalizedTaskInput = firstLetter + lowerCaseTask.slice(1)
 
+      setTaskInput(capitalizedTaskInput);
+    }
 
-    setTaskInput(capitalizedTaskInput);
   }
 
   const handleBackClick = () => {
@@ -64,12 +63,25 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <nav className="navbar">
-        <div className="logo">Task Timer</div>
-      </nav>
-      {display()}
-    </div>
+
+
+    <ThemeContextConsumer>
+      {context => (
+        <div className={`app app-${context.theme}-theme`}>
+        <nav className={`navbar navbar-${context.theme}-theme`}>
+          <div className="logo">Task Timer</div>
+          <div onClick={context.handleToggleTheme} className="toggle-mode">
+            <span className={`material-icons material-icons-${context.theme}-theme`}>
+            brightness_6
+            </span>
+          </div>
+        </nav>
+        {display()}
+      </div>
+      )}
+    </ThemeContextConsumer>
+
+
   )
 }
 

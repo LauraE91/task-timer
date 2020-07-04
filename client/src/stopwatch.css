@@ -2,8 +2,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
-
+  height: 100%;
 }
 
 .stopwatch-container {
@@ -12,8 +11,6 @@
   align-items: center;
   width: 350px;
   height: 200px;
-  /*border-radius: 50%;*/
-  /*border: 1px solid var(--dark);*/
 }
 
 .top-btn-group {
@@ -24,12 +21,9 @@
 }
 
 
-
 .task-heading h1 {
   font-size: 3.5rem;
-  color: var(--primary);
   margin-top: 8rem;
-
 }
 
 .timer h1 {
@@ -53,8 +47,6 @@
   padding-left: 0.2rem;
   font-size: 2.7rem;
 }
-
-
 
 .task-history-container {
   margin: 5rem auto;
@@ -80,18 +72,15 @@
 .task-history-list::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px var(--dark);
   border-radius: 10px;
-  border: 1px solid var(--dark);
   background: var(--white);
 }
 
 .task-history-list::-webkit-scrollbar-thumb {
   border-radius: 10px;
-  background: var(--dark);
 }
 
 .task {
   list-style-type: none;
-  background: white;
   border-left: 8px solid var(--light);
   padding: 1rem 2rem;
   margin: 1.5rem;
@@ -100,6 +89,7 @@
   display: flex;
   justify-content: space-between;
 }
+
 
 .task span,
 .remove-btn{
@@ -122,9 +112,4 @@
 
 .hide {
   display: none;
-}
-
-.success {
-  color: var(--primary);
-
 }
