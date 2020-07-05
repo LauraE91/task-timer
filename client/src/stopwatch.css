@@ -92,8 +92,20 @@
 
 
 .task span,
-.remove-btn{
+.remove-btn {
   margin: 0.5rem 1.5rem;
+}
+
+@media(max-width: 800px) {
+  .task {
+    font-size: 1rem;
+    margin: 0.8rem 0.5rem;
+  }
+
+  .task span,
+  .remove-btn {
+    margin: 0.5rem 0.7rem;
+  }
 }
 
 .remove-btn {

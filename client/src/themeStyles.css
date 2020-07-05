@@ -8,6 +8,16 @@
   color: var(--light);
 }
 
+.how-to-box-light-theme {
+  background: var(--primary);
+  color: var(--white);
+}
+
+.how-to-box-dark-theme {
+  background: var(--less-dark);
+  color: var(--light);
+}
+
 .material-icons-light-theme:hover {
   color: var(--light);
 }
@@ -31,7 +41,8 @@
 }
 
 .task-input-light-theme::placeholder {
-  color: var(--dark);
+  color: rgba(0,0,0,0.4);;
+
 }
 
 .task-input-dark-theme {
@@ -40,9 +51,11 @@
   color: var(--light);
 }
 
+
 .task-input-dark-theme::placeholder {
-  color: var(--white);
+  color: rgba(200,200,200,0.4);
 }
+
 
 .btn-light-theme {
    border-color: var(--dark);

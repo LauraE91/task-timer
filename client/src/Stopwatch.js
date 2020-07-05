@@ -162,8 +162,12 @@ let updatedHr = times.hr;
         <ThemeContextConsumer>
         {context => (
           <>
-            <button className={`btn btn-${context.theme}-theme`} onClick={pause}>Pause</button>
-            <button className={`btn btn-${context.theme}-theme`} onClick={done}>Done</button>
+            <button className={`btn btn-${context.theme}-theme`} onClick={pause}><span class="material-icons">
+pause
+</span> Pause</button>
+            <button className={`btn btn-${context.theme}-theme`} onClick={done}><span class="material-icons">
+done
+</span> Done</button>
             <button className={`btn primary-btn-${context.theme}-theme`} onClick={reset}>Reset</button>
           </>
         )}
@@ -178,8 +182,12 @@ let updatedHr = times.hr;
       {context => (
         <div className="outer-container">
           <div className="top-btn-group">
-            <button onClick={props.handleBackClick} className={`btn btn-${context.theme}-theme`}>Back</button>
-            <button onClick={toggleHistory} className={`btn btn-${context.theme}-theme`}>Toggle History</button>
+            <button onClick={props.handleBackClick} className={`btn btn-${context.theme}-theme`}><span class="material-icons">
+keyboard_arrow_left
+</span> Back</button>
+            <button onClick={toggleHistory} className={`btn btn-${context.theme}-theme`}><span class="material-icons">
+history_toggle_off
+</span> Toggle History</button>
           </div>
           <div className={`task-heading task-heading-${context.theme}-theme`}>
             <h1>{props.taskInput}</h1>
