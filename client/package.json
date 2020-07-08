@@ -13,8 +13,8 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts client/build",
-    "deploy": "gh-pages -d build",
+    "build": "react-scripts build",
+    "deploy": "gh-pages -d client/build",
     "eject": "react-scripts eject"
   },
   "homepage": "https://laura-ross.github.io/tasktimer",
