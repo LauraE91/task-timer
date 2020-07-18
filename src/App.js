@@ -76,8 +76,8 @@ function App() {
             </span> How To
             <div className={`how-to-box how-to-box-${context.theme}-theme`}>
               <ul>
-                <li>To get started, enter a task you would like to time and click start. The app will automaticaly begin timing your progress.</li>
-                <li>Upon clicking done, your task will be added to your task history. You also have the option to remove a task.</li>
+                <li>To get started, enter a task you would like to time and click start.</li>
+                <li>Upon clicking done, your task will be added to your task history. You can also remove a task.</li>
                 <li>All tasks are stored on your local machine for as long as you want. However, storage is limited.</li>
                 <li><strong>Don't refresh the page while you are in the middle of a task</strong> (even if it is paused) or else you will lose your time!</li>
               </ul>

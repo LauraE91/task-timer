@@ -9,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 350px;
+  width: auto;
   height: 200px;
 }
 
@@ -28,7 +28,6 @@
 
 .timer h1 {
   font-size: 10rem;
-
 }
 
 .timer span {
@@ -49,7 +48,7 @@
 }
 
 .task-history-container {
-  margin: 5rem auto;
+  margin: 5rem 1rem;
 }
 
 .task-history-container h2 {
@@ -96,18 +95,6 @@
   margin: 0.5rem 1.5rem;
 }
 
-@media(max-width: 800px) {
-  .task {
-    font-size: 1rem;
-    margin: 0.8rem 0.5rem;
-  }
-
-  .task span,
-  .remove-btn {
-    margin: 0.5rem 0.7rem;
-  }
-}
-
 .remove-btn {
   color: var(--light);
   cursor: pointer;
@@ -124,4 +111,102 @@
 
 .hide {
   display: none;
+}
+
+.success {
+  text-align: center;
+}
+
+@media(max-width: 800px) {
+  .task {
+    font-size: 1rem;
+    margin: 0.8rem 0.5rem;
+  }
+
+  .task span,
+  .remove-btn {
+    margin: 0.5rem 0.7rem;
+  }
+
+  .task-heading h1 {
+    font-size: 3rem;
+    margin-top: 8rem;
+  }
+
+  .timer h1 {
+    font-size: 8rem;
+  }
+}
+
+@media(max-width: 650px) {
+
+  .task-heading h1 {
+    font-size: 2.5rem;
+  }
+
+  .timer h1 {
+    font-size: 6rem;
+  }
+
+  .task-history-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .task-history-list {
+    max-height: 450px;
+    width: 95%;
+  }
+}
+
+@media(max-width: 500px) {
+  .top-btn-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .task-heading h1 {
+    font-size: 2.3rem;
+  }
+
+  .timer h1 {
+    font-size: 5rem;
+  }
+
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .success {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .start-again-btn {
+  font-size: 1rem
+  }
+
+  .task-history-list {
+    width: auto;
+  }
+
+  .task {
+    flex-direction: column;
+  }
+
+  .remove-btn {
+    text-align: right;
+  }
+}
+
+@media(max-width: 350px) {
+  .task-heading h1 {
+    font-size: 2rem;
+    margin-top: 6rem;
+  }
+
+  .timer h1 {
+    font-size: 3.7rem;
+  }
 }

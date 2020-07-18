@@ -149,8 +149,8 @@ let updatedHr = times.hr;
             <ThemeContextConsumer>
             {context => (
               <>
-                <h3 className={`success-${context.theme}-theme`}>Congrats, you finished a thing!</h3>
-                <button onClick={props.handleBackClick} className={`btn btn-${context.theme}-theme`}> Start something else?</button>
+                <h3 className={`success success-${context.theme}-theme`}>Congrats, you finished a thing!</h3>
+                <button onClick={props.handleBackClick} className={`start-again-btn btn btn-${context.theme}-theme`}> Start something else?</button>
               </>
             )}
             </ThemeContextConsumer>
@@ -163,11 +163,11 @@ let updatedHr = times.hr;
         {context => (
           <>
             <button className={`btn btn-${context.theme}-theme`} onClick={pause}><span class="material-icons">
-pause
-</span> Pause</button>
+            pause
+            </span> Pause</button>
             <button className={`btn btn-${context.theme}-theme`} onClick={done}><span class="material-icons">
-done
-</span> Done</button>
+            done
+            </span> Done</button>
             <button className={`btn primary-btn-${context.theme}-theme`} onClick={reset}>Reset</button>
           </>
         )}
@@ -183,11 +183,11 @@ done
         <div className="outer-container">
           <div className="top-btn-group">
             <button onClick={props.handleBackClick} className={`btn btn-${context.theme}-theme`}><span class="material-icons">
-keyboard_arrow_left
-</span> Back</button>
+            keyboard_arrow_left
+            </span> Back</button>
             <button onClick={toggleHistory} className={`btn btn-${context.theme}-theme`}><span class="material-icons">
-history_toggle_off
-</span> Toggle History</button>
+            history_toggle_off
+            </span> Toggle History</button>
           </div>
           <div className={`task-heading task-heading-${context.theme}-theme`}>
             <h1>{props.taskInput}</h1>

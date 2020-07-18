@@ -5,6 +5,7 @@
   outline: none;
   font-family: 'Montserrat', sans-serif;
   letter-spacing: 2.3px;
+
 }
 
 :root {
@@ -115,16 +116,71 @@
   font-size: 2rem;
 }
 
-@media(max-width:850px) {
-  .task-input {
-    width: 500px;
-    font-size: 1.6rem;
+@media(max-width: 1200px) {
+  .how-to-box {
+    max-width: 75%;
   }
 }
 
-@media(max-width:1200px) {
+@media(max-width: 1000px) {
   .how-to-box {
-    max-width: 65%;
+    max-width: 80%;
+    left: 0;
+  }
+}
+
+@media(max-width: 850px) {
+  .task-input {
+    width: 400px;
+    font-size: 1.5rem;
+  }
+
+  .how-to-box {
+    max-width: 100%;
+  }
+}
+
+@media(max-width: 500px) {
+  .task-input {
+    width: 300px;
+    font-size: 1rem;
+  }
+
+  .nav-left {
+    margin-left:1rem;
+    width: 90%;
+    line-height: 25px;
+  }
+
+  .nav-left p {
+    font-size: 1rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    padding: 1rem;
+    margin-left: 0rem;
+    line-height: 1;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+}
+
+@media(max-width: 360px) {
+  .task-input {
+    width: 270px;
+    font-size: 1rem;
+  }
+
+  .nav-link {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .logo {
+    font-size: 1rem;
   }
 }
 
