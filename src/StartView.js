@@ -16,7 +16,7 @@ function StartView(props) {
         {context => (
           <>
             <div className="start-view">
-              <input onChange={props.handleChange} value={props.taskInput} placeholder="What are you working on?" className={`task-input task-input-${context.theme}-theme`}/>
+              <input onChange={props.handleChange} value={props.taskInput} placeholder="Enter a task..." className={`task-input task-input-${context.theme}-theme`}/>
               <button onClick={startClicked} className={`btn start-btn start-btn-${context.theme}-theme`}>Start</button>
             </div>
             <footer className={`footer footer-${context.theme}-theme`}><p>&copy; Laura Ross 2020</p></footer>
